@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  h1 Add a Book to your Shelf
+  fieldset
+    legend Enter your new Book
+    form(method='post' action='/library/books/new')
+      div
+        label Title
+          input(type='text' name='title')
+      div
+        label Author
+          input(type='text' name='author')
+      div
+        label Pdf Upload
+          
+      div(id='quotes')
+        label 
+          button(id='addQuote') Add a Quote 
+      div
+        button(type='submit') Add to My Shelf
+      
+  script(src='/javascripts/client.js')

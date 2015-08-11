@@ -30,6 +30,14 @@ app.use(session({
   keys: ['sdfk5j45khkh35', 'dfgkjhf45kjh5']
 }))
 
+app.use(function (req, res, next) {
+  db.findUser(req, function () {
+    next();
+  }, function () {
+    res.locals.userId = req.session.username;
+    next();
+  })
+});
 app.use('/', routes);
 app.use('/users', users);
 app.use(function (req, res, next) {

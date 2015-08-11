@@ -4,10 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var session = require('cookie-session');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var library = require('./routes/books');
+var db = require('./lib/javascripts/mongo');
 
 var app = express();
 
@@ -23,8 +24,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// cookie session
+app.use(session({
+  name: 'session',
+  keys: ['sdfk5j45khkh35', 'dfgkjhf45kjh5']
+}))
+
 app.use('/', routes);
 app.use('/users', users);
+app.use(function (req, res, next) {
+  db.findUser(req, function () {
+    res.redirect('/');
+  }, next);
+})
 app.use('/library', library);
 
 // catch 404 and forward to error handler

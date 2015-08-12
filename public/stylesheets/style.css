@@ -1,8 +1,26 @@
-#error {
-  color: red;
-}
-
 /* Menu Nav Button*/
 .glyphicon-align-center {
   font-size: 1.5em;
+}
+
+.user {
+  margin-top: 10%;
+}
+
+.centered {
+  text-align: center;
+  margin-left: 33%;
+  display: inline-block;
+}
+
+.error {
+  color: red;
+  margin-bottom: 2.5%;
+}
+
+.formAddOn {
+  background-color: rgb(246, 243, 236);
+  padding-right: 4%;
+  padding-bottom: 2%;
+  margin-top: 7%;
 }

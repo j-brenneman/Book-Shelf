@@ -4,16 +4,16 @@ var db = require('./../../lib/javascripts/mongo.js');
 
 
 // Personal Book Shelf
-router.get('/books/shelf', function (req, res, next) {
+router.get('/books/shelf/:id', function (req, res, next) {
   res.render('books/shelf');
 });
 // New Book
-router.get('/books/new', function (req, res, next) {
+router.get('/books/:id', function (req, res, next) {
     res.render('books/new');
 });
-router.post('/books/new', function (req, res, next) {
-  db.bookInsert(req.body, function () {
-    res.redirect('/library/books/shelf');
+router.post('/books/:id', function (req, res, next) {
+  db.bookInsert(req, function () {
+    res.redirect('/library/books/shelf/' + res.locals.userId);
   })
 });
 

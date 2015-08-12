@@ -1,20 +1,28 @@
 extends ../layout
 
 block content
-  ul(id='error')
+  div(class='col-lg-4 centered formAddOn')
+    h1.col-lg-offset-2 Sign Up
+    br
     if(errors)
+      ul(class='col-lg-offset-2 centered')
       for error in errors
-        li= error
-  fieldset
-    legend Sign Up
-    form(method='post' action='/users/new_account')
-      div
-        label Username
-          input(type='text' name='username')
-      div
-        label Password 
-          input(type='password' name='password')
-      div
-        label Re-Enter Password
-          input(type='password' name='passwordCheck')
-      button(type='submit') Sign Up
+        li(class='error col-lg-offset-2')= error
+    form(class='form-horizontal', method='post', action='/users/new_account')
+      .form-group
+        label(class='col-lg-2 control-label', for='username') Username       
+        .col-lg-10
+          input(id='username', class='form-control', type='text', name='username')     
+      .form-group
+        label(class='col-lg-2 control-label', for='password') Password       
+        .col-lg-10
+          input(id='password', class='form-control', type='password', name='password')
+      .form-group
+        label(class='col-lg-2 control-label', for='passwordCheck') Confirm        
+        .col-lg-10
+          input(id='passwordCheck', class='form-control', type='password', name='passwordCheck' placeholder='Enter Password Again')       
+      .form-group
+        div(class='col-lg-10 col-lg-offset-2')
+          button(class='btn btn-default', type='reset') Cancel
+          |         
+          button(class='btn btn-primary', type='submit') Submit

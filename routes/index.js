@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
 });
 // Discovery Library
 router.get('/library/books', function (req, res, next) {
+  
   res.render('books/index', {user: req.session.username});
 });
 

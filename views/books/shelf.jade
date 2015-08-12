@@ -4,3 +4,14 @@ block content
   h1 My Shelf
   p
     a(href='/library/books/' + userId) New Book
+  fieldset
+    legend Book Search
+    form
+      label Title
+        input(type='text' name='title')
+      label Author
+        input(type='text' name='author')
+    button(id='bookSearch') Search
+  
+  script(src='/javascripts/bookSearch.js')
+  

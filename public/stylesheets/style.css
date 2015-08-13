@@ -1,16 +1,40 @@
 /* Menu Nav Button*/
+html, body {
+  height: 100%;
+}
+
 .glyphicon-align-center {
   font-size: 1.5em;
 }
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 7%;
+  border-radius: 0;
+}
+
+.dropdown {
+  position: relative;
+  bottom: 1.8em;
+}
 
 .user {
-  margin-top: 10%;
+  position: relative;
+  bottom: 1.2em;
 }
 
 .centered {
   text-align: center;
   margin-left: 33%;
   display: inline-block;
+}
+
+.middle {
+  display: inline;
+  margin-left: 41.5%;
+  position: relative;
+  top: 1.3em;
 }
 
 .error {
@@ -23,4 +47,27 @@
   padding-right: 4%;
   padding-bottom: 2%;
   margin-top: 7%;
+}
+
+#bookPreview {
+  display: none;
+  width: 90%;
+  text-align: center;
+  margin: 2% auto;
+  border: 1.5px dashed rgb(129, 191, 51);
+
+}
+
+#shelf {
+  display: inline-block;
+  width: 100%;
+  margin: 5% auto;
+  text-align: center;
+  height: 90%;
+}
+
+.bookColumn {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
 }

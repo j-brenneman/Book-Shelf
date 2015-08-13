@@ -1,13 +1,22 @@
 extends ../layout
 
 block content
-  h1 My Shelf
-  p
-    a(href='/library/books/' + userId) New Book
-  p
-    label(for='txtBookSearch') Type in a Title
-    br  
-    input(id='txtBookSearch' type='text')
-  
+  div(id='shelf')
+    h1 My Shelf
+    p
+      label.highlight(for='txtBookSearch') Type in a Title
+      br  
+      input(id='txtBookSearch' type='text')
+    section(id='bookPreview')
+      h2(id='title') Title
+      br
+      div(class='bookColumn')
+        p(id='author') Author:
+        button(id='Favorite' class='btn btn-primary') Favorite
+      div(class='bookColumn')
+        img(id='picture' src='' alt='No Image Avaialble')
+        p(id='publishedDate') Published
+        p(id='description') description
+      
   script(src='/javascripts/bookSearch.js')
   

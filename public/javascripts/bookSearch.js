@@ -1,3 +1,4 @@
+var books;
 $(document).ready(function () {  // only begin once page has loaded
   $("#txtBookSearch").autocomplete({ // attach auto-complete functionality to textbox
       // define source of the data
@@ -30,11 +31,21 @@ $(document).ready(function () {  // only begin once page has loaded
         });
       },
       select: function (event, ui) {
-        var picture = document.createElement('img');
-        var att = document.createAttribute('src');
-        att.value = ui.item.image;
-        picture.setAttributeNode(att);
-        document.body.appendChild(picture);
+        books = ui.item;
+        event.preventDefault();
+        var picture = document.getElementsByTagName('img')[0];
+        picture.src = ui.item.image;
+        var title = document.getElementById('title');
+        title.innerHTML = ui.item.title;
+        var description = document.getElementById('description');
+        description.innerHTML = ui.item.description;
+        var bookPreview = document.getElementById('bookPreview');
+        var author = document.getElementById('author');
+        author.innerHTML = 'Author:' + '<br>' + ui.item.author;
+        var publishedDate = document.getElementById('publishedDate');
+        publishedDate.innerHTML = 'Published:' + '<br>' + ui.item.publishedDate;
+        bookPreview.style.display = 'block'
+        console.log(books);
       },
       minLength: 2 // set minimum length of text the user must enter
   });

@@ -12,7 +12,7 @@ router.get('/books/:id', function (req, res, next) {
     res.render('books/new');
 });
 router.post('/books/:id', function (req, res, next) {
-  db.bookInsert(req, function () {
+  db.bookInsert(req).then(function () {
     res.redirect('/library/books/shelf/' + res.locals.userId);
   })
 });

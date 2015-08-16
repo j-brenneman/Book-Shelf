@@ -18,22 +18,22 @@ block content
         p(id='publishedDate') Published
         p(id='description') description
       
-    fieldset
-      legend Enter your new Book
-      form(method='post' action='/library/books/:id' + userId)
-        div
-          label Title
-            input(type='text' name='title')
-        div
-          label Author
-            input(type='text' name='author')
-        div
-          label Pdf Upload
-        div(id='quotes')
-          label 
-            button(id='addQuote') Add a Quote 
-        div
-          button(type='submit') Add to My Shelf
+    //- fieldset
+    //-   legend Enter your new Book
+    //-   form(method='post' action='/library/books/:id' + userId)
+    //-     div
+    //-       label Title
+    //-         input(type='text' name='title')
+    //-     div
+    //-       label Author
+    //-         input(type='text' name='author')
+    //-     div
+    //-       label Pdf Upload
+    //-     div(id='quotes')
+    //-       label 
+    //-         button(id='addQuote') Add a Quote 
+    //-     div
+    //-       button(type='submit') Add to My Shelf
   script(src='/javascripts/bookSearch.js')
   
   

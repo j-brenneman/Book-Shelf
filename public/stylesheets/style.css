@@ -71,3 +71,14 @@ html, body {
   width: 48%;
   vertical-align: top;
 }
+
+#newBook {
+  display: none;
+  width: 90%;
+  text-align: center;
+  margin: 4% auto;
+}
+
+#quote {
+  display: block;
+}

@@ -1,4 +1,6 @@
 var books;
+var picture = document.getElementsByTagName('img')[0];
+
 $(document).ready(function () {  // only begin once page has loaded
   $("#txtBookSearch").autocomplete({ // attach auto-complete functionality to textbox
       // define source of the data
@@ -32,8 +34,8 @@ $(document).ready(function () {  // only begin once page has loaded
       },
       select: function (event, ui) {
         books = ui.item;
+        newBook.style.display = 'none';
         event.preventDefault();
-        var picture = document.getElementsByTagName('img')[0];
         picture.src = ui.item.image;
         var title = document.getElementById('title');
         title.innerHTML = ui.item.title;
@@ -51,14 +53,34 @@ $(document).ready(function () {  // only begin once page has loaded
   });
 });
 
-// var bookForm = document.getElementById('quotes');
-// var addQuote = document.getElementById('addQuote');
-//
-// addQuote.addEventListener('click', function (evt) {
-//   evt.preventDefault();
-//   var quote = document.createElement('textarea');
-//   var att = document.createAttribute('name');
-//   att.value='quotes'
-//   quote.setAttributeNode(att);
-//   bookForm.appendChild(quote);
-// });
+// Populate Prefilled Form
+var favorite = document.getElementById('Favorite');
+var newBook = document.getElementById('newBook');
+favorite.addEventListener('click', function () {
+  bookPreview.style.display = 'none';
+  var newTitle = document.getElementsByName('title')[0];
+  newTitle.value = books.title;
+  var newAuthor = document.getElementsByName('author')[0];
+  newAuthor.value = books.author;
+  var newDescription = document.getElementsByName('description')[0];
+  newDescription.value = books.description;
+  var newImage = document.getElementsByName('imageUrl')[0];
+  newImage.value = books.image;
+  var newPublishedDate = document.getElementsByName('published')[0];
+  newPublishedDate.value = books.publishedDate;
+  newBook.style.display = 'block';
+})
+
+// Add Quotes
+var bookForm = document.getElementById('quotes');
+var addQuote = document.getElementById('addQuote');
+addQuote.addEventListener('click', function (evt) {
+  evt.preventDefault();
+  var newLine = document.createElement('br');
+  var quote = document.createElement('textarea');
+  var att = document.createAttribute('name');
+  att.value='quotes'
+  quote.setAttributeNode(att);
+  bookForm.appendChild(newLine);
+  bookForm.appendChild(quote);
+});

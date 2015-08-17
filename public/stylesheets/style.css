@@ -1,4 +1,3 @@
-/* Menu Nav Button*/
 html, body {
   height: 100%;
 }
@@ -21,18 +20,18 @@ html, body {
 
 .user {
   position: relative;
-  bottom: 1.2em;
+  bottom: 1.4em;
 }
 
 .centered {
   text-align: center;
-  margin-left: 33%;
+  margin-left: 31%;
   display: inline-block;
 }
 
 .middle {
   display: inline;
-  margin-left: 41.5%;
+  margin-left: 41%;
   position: relative;
   top: 1.3em;
 }
@@ -81,4 +80,13 @@ html, body {
 
 #quote {
   display: block;
+}
+
+#frontLink {
+  display: block;
+  margin: 4% auto;
+}
+
+h2 {
+  text-align: center;
 }

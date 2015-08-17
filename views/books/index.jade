@@ -1,8 +1,45 @@
 extends ../layout
 
 block content
-  h1 Discovery Library
-  p 
-    a(href= '/library/books/shelf/' + userId) My Shelf
+  div(id='shelf')
+    h1 Catalog
+    p
+      label.highlight(for='txtBookSearch') Type in a Title/Author
+      br
+      input(id='txtBookSearch' type='text')
+    section(id='bookPreview')
+      h2(id='title') Title:
+      button(id='Favorite' class='btn btn-primary') Favorite
+      br
+      div(class='bookColumn')
+        p(id='author') Author:
+        img(id='picture' src='' alt='No Image Avaialble')
+        p(id='publishedDate') Published:
+        p(id='description') Description:
+      
+    fieldset(id='newBook')
+      legend Enter your new Book
+      form(method='post' action='/library/books/' + userId)
+        div
+          label Title
+            input(type='text' name='title')
+        div
+          label Author
+            input(type='text' name='author')
+        div
+          label Description
+            textarea(type='text' name='description')
+        div
+          label Image url
+            input(type='text' name='imageUrl')
+        div
+          label Publish Date
+            input(type='text' name='published')
+        div(id='quotes')
+          label 
+            button(id='addQuote') Add a Quote 
+        div
+          button(type='submit') Add to My Shelf
+  script(src='/javascripts/bookSearch.js')
 
   

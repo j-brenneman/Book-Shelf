@@ -43,7 +43,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use(function (req, res, next) {
   db.findUser(req, function () {
-    res.redirect('/');
+    res.redirect('/users/new_account');
   }, function () {
     next();
   });

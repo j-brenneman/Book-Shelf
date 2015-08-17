@@ -34,7 +34,8 @@ html
                     a(href='/users/logout') Logout
           ul.nav.navbar-nav.navbar-right
             li
-              button(class='btn btn-default user')= username  
+              a(href='/library/books/shelf/' + userId, class='user')
+                button(class='btn btn-default user')= username  
     script(src="//code.jquery.com/jquery-1.11.3.min.js")
     script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js")
     script(src='http://bootswatch.com/bower_components/bootstrap/dist/js/bootstrap.min.js')

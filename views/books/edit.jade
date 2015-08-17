@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  div(id='shelf')
+    fieldset
+      legend Edit Book
+      form(method='post' action='/library/books/' + book._id + '/update')
+        div
+          label Title
+            input(type='text' name='title' value= book.title)
+        div
+          label Author
+            input(type='text' name='author' value= book.author)
+        div
+          label Description
+            textarea(type='text' name='description') #{book.description}
+        div
+          label Image url
+            input(type='text' name='imageUrl' value= book.imageUrl)
+        div
+          label Publish Date
+            input(type='text' name='published' value= book.publishedDate)
+        div(id='quotes')
+          label 
+            button(id='addQuote') Add a Quote 
+        div
+          button(type='submit') Update
+      form(method='post' action='/library/books/' + book._id + '/remove')
+        div(id='delete')
+          button(type='submit') Delete

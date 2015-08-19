@@ -6,4 +6,6 @@ block content
     each book in collection
       a(href='/library/books/' + book.id)
         img(src= book.imageUrl)
-  
+      if(book.quotes[0])
+        span #{book.quotes[0].quote} 
+   

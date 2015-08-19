@@ -7,11 +7,14 @@ $(document).ready(function () {  // only begin once page has loaded
       source: function (request, response) {
         // url link to google books, including text entered by user (request.term)
         var booksUrl = "https://www.googleapis.com/books/v1/volumes?printType=books&q=" + encodeURIComponent(request.term);
+        // TODO: find out what $.ajax returns
         $.ajax({
             url: booksUrl,
             dataType: "jsonp",
             success: function(data) {
+              // TODO: find out why you would use $.map here instead of items.map
               response($.map(data.items, function (item) {
+                  console.log(item);
                   if (item.volumeInfo.authors && item.volumeInfo.title && item.volumeInfo.industryIdentifiers && item.volumeInfo.publishedDate)
                   {
                     return {

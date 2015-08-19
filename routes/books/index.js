@@ -4,8 +4,9 @@ var db = require('./../../lib/javascripts/mongo.js');
 
 // My Shelf
 router.get('/books/shelf/:id', function (req, res, next) {
-  db.findBooks(req).then(function (books) {
-    res.render('books/shelf', {collection: books})
+  db.findBooks(req).then(function (collection) {
+    console.log(collection[0].quotes[0].quote);
+    res.render('books/shelf', {collection: collection})
   })
 })
 // New Book

@@ -4,27 +4,31 @@ block content
   div(id='shelf')
     fieldset
       legend Edit Book
-      form(method='post' action='/library/books/' + book._id + '/update')
+      form(method='post' action='/library/books/' + book[0]._id + '/update')
         div
           label Title
-            input(type='text' name='title' value= book.title)
+            input(type='text' name='title' value= book[0].title)
         div
           label Author
-            input(type='text' name='author' value= book.author)
+            input(type='text' name='author' value= book[0].author)
         div
           label Description
-            textarea(type='text' name='description') #{book.description}
+            textarea(type='text' name='description') #{book[0].description}
         div
           label Image url
-            input(type='text' name='imageUrl' value= book.imageUrl)
+            input(type='text' name='imageUrl' value= book[0].imageUrl)
         div
           label Publish Date
-            input(type='text' name='published' value= book.publishedDate)
+            input(type='text' name='published' value= book[0].publishedDate)
         div(id='quotes')
+          label Quotes
+          each item in book.quotes
+            textarea(name='quotes')= item.quote 
           label 
             button(id='addQuote') Add a Quote 
         div
           button(type='submit') Update
-      form(method='post' action='/library/books/' + book._id + '/remove')
+      form(method='post' action='/library/books/' + book[0]._id + '/remove')
         div(id='delete')
           button(type='submit') Delete
+  

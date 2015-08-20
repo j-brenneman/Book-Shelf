@@ -88,6 +88,13 @@ html, body {
   margin: 4% auto;
 }
 
-h2 {
-  text-align: center;
+.collection {
+  display: inline-block;
+  margin: 1% 2%;
+  vertical-align: middle;
+  width: 10%;
+}
+
+.quotes {
+  display: none;
 }

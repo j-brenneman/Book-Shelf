@@ -5,7 +5,6 @@ var db = require('./../../lib/javascripts/mongo.js');
 // My Shelf
 router.get('/books/shelf/:id', function (req, res, next) {
   db.findBooks(req).then(function (collection) {
-    console.log(collection[0].quotes[0].quote);
     res.render('books/shelf', {collection: collection})
   })
 })
@@ -18,11 +17,10 @@ router.post('/books/:id', function (req, res, next) {
 // Edit Book
 router.get('/books/:id', function (req, res, next) {
   db.findBook(req).then(function (book) {
-    console.log(book);
-    res.render('books/edit', {book: book[0]})
+    console.log(book.quotes);
+    res.render('books/edit', {book: book})
   })
 })
-
 router.post('/books/:id/update', function (req, res, next) {
   db.updateBook(req).then(function () {
     res.redirect('/library/books/shelf/' + res.locals.userId)

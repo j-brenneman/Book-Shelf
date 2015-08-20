@@ -98,3 +98,7 @@ html, body {
 .quotes {
   display: none;
 }
+
+h2 {
+  text-align: center;
+}

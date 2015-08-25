@@ -9,9 +9,7 @@ router.get('/', function(req, res, next) {
 });
 // Discovery Library
 router.get('/library/books', function (req, res, next) {
-  db.findBook(req).then(function (books) {
-    res.render('books/index', {collection: books});
-  })
+  res.render('books/index');
 });
 
 

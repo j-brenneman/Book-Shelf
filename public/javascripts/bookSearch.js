@@ -14,7 +14,6 @@ $(document).ready(function () {  // only begin once page has loaded
             success: function(data) {
               // TODO: find out why you would use $.map here instead of items.map
               response($.map(data.items, function (item) {
-                  console.log(item);
                   if (item.volumeInfo.authors && item.volumeInfo.title && item.volumeInfo.industryIdentifiers && item.volumeInfo.publishedDate)
                   {
                     return {
